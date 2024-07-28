@@ -1,6 +1,6 @@
 /* ============= css related to chats =============== */
 
-.widget {
+.chatbot-widget .widget {
   display: none;
   width: 350px;
   right: 15px;
@@ -10,9 +10,10 @@
   background: #fff;
   border-radius: 10px 10px 10px 10px;
   box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.16), 0 0px 5px 0 #00000096;
+  z-index: 9999; /* Ensure the widget is on top */
 }
 
-.chat_header {
+.chatbot-widget .chat_header {
   height: 60px;
   background: #060dcfc7;
   border-radius: 10px 10px 0px 0px;
@@ -20,14 +21,14 @@
   font-size: 20px;
 }
 
-.chat_header_title {
+.chatbot-widget .chat_header_title {
   color: white;
   float: left;
   margin-top: 3%;
   margin-left: 35%;
 }
 
-.chats {
+.chatbot-widget .chats {
   /* display: none; */
   height: 385px;
   padding: 2px;
@@ -37,7 +38,7 @@
   transition: 0.2s;
 }
 
-div.chats::-webkit-scrollbar {
+.chatbot-widget div.chats::-webkit-scrollbar {
   overflow-y: hidden;
   width: 0px;
   /* remove scrollbar space /
@@ -45,12 +46,12 @@ div.chats::-webkit-scrollbar {
     / optional: just make scrollbar invisible */
 }
 
-.clearfix {
+.chatbot-widget .clearfix {
   margin-top: 2px;
   margin-bottom: 2px;
 }
 
-.botAvatar {
+.chatbot-widget .botAvatar {
   border-radius: 50%;
   width: 1.5em;
   height: 1.5em;
@@ -59,7 +60,7 @@ div.chats::-webkit-scrollbar {
   /* border: 2px solid  #060DCF ; */
 }
 
-.botMsg {
+.chatbot-widget .botMsg {
   float: left;
   margin-top: 5px;
   background: #e3e7ee;
@@ -75,24 +76,24 @@ div.chats::-webkit-scrollbar {
   border-radius: 5px 20px 20px 20px;
 }
 
-div.chats > pre {
+.chatbot-widget div.chats > pre {
   font-family: monospace, monospace;
   font-size: 1em;
   margin: 0 !important;
   /* display: inline !important; */
   white-space: initial !important;
 }
-div.chats > ul:not(.browser-default) {
+.chatbot-widget div.chats > ul:not(.browser-default) {
   padding-left: 1em;
 }
-div.chats > ul:not(.browser-default) > li {
+.chatbot-widget div.chats > ul:not(.browser-default) > li {
   list-style-type: initial;
 }
 
-div.chats > span.botMsg > ol {
+.chatbot-widget div.chats > span.botMsg > ol {
   padding-left: 1em;
 }
-textarea {
+.chatbot-widget textarea {
   box-shadow: none;
   resize: none;
   outline: none;
@@ -100,15 +101,15 @@ textarea {
   font-family: Lato;
 }
 
-textarea::-webkit-input-placeholder {
+.chatbot-widget textarea::-webkit-input-placeholder {
   font-family: Lato;
 }
 
-textarea-webkit-scrollbar {
+.chatbot-widget textarea-webkit-scrollbar {
   width: 0 !important;
 }
 
-.userMsg {
+.chatbot-widget .userMsg {
   animation: animateElement linear 0.2s;
   animation-iteration-count: 1;
   margin-top: 5px;
@@ -126,7 +127,7 @@ textarea-webkit-scrollbar {
   /* box-shadow: 0px 2px 5px 0px #9a828454; */
 }
 
-blockquote {
+.chatbot-widget blockquote {
   margin: 20px 0;
   padding-left: 1.5rem;
   border-left: 5px solid #ee6e73;
@@ -136,7 +137,7 @@ blockquote {
   margin-inline-end: 0 !important;
 }
 
-.userAvatar {
+.chatbot-widget .userAvatar {
   animation: animateElement linear 0.3s;
   animation-iteration-count: 1;
   border-radius: 50%;
@@ -147,7 +148,7 @@ blockquote {
   /* border: 2px solid  #060DCF ; */
 }
 
-.usrInput {
+.chatbot-widget .usrInput {
   padding: 0.5em;
   width: 80%;
   margin-left: 4%;
@@ -156,7 +157,7 @@ blockquote {
   height: 40px;
 }
 
-.keypad {
+.chatbot-widget .keypad {
   /* display: none;  */
   background: white;
   height: 50px;
@@ -168,7 +169,7 @@ blockquote {
   border-top: 1px solid #e3e7ee;
 }
 
-#sendButton {
+.chatbot-widget #sendButton {
   height: 20px;
   width: 20px;
   border-radius: 50%;
@@ -182,13 +183,13 @@ blockquote {
   color: #060dcfc7;
 }
 
-.imgProfile {
+.chatbot-widget .imgProfile {
   box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.16), 0 0px 10px 0 #00000096;
   border-radius: 50px;
   width: 60%;
 }
 
-.profile_div {
+.chatbot-widget .profile_div {
   /* display: none; */
   position: fixed;
   padding: 5px;
@@ -196,17 +197,18 @@ blockquote {
   bottom: 0;
   right: 0;
   cursor: pointer;
+  z-index: 9999; /* Ensure the profile icon is on top */
 }
 
 /* css for dropdown menu of the bot */
 
-#close,
-#restart,
-#clear {
+.chatbot-widget #close,
+.chatbot-widget #restart,
+.chatbot-widget #clear {
   cursor: pointer;
 }
 
-.dropdown-trigger {
+.chatbot-widget .dropdown-trigger {
   cursor: pointer;
   color: white;
   margin-right: 5px;
@@ -214,8 +216,8 @@ blockquote {
   margin-top: 3%;
 }
 
-.dropdown-content li > a,
-.dropdown-content li > span {
+.chatbot-widget .dropdown-content li > a,
+.chatbot-widget .dropdown-content li > span {
   color: #060dcfc7;
 }
 
@@ -234,7 +236,7 @@ blockquote {
 
 /* css for card details of carousel cards */
 
-.content {
+.chatbot-widget .content {
   transition: 0.2s;
   display: none;
   width: 350px;
@@ -245,16 +247,17 @@ blockquote {
   background: white;
   border-radius: 10px 10px 10px 10px;
   box-shadow: 0px 2px 10px 1px #b5b5b5;
+  z-index: 9999; /* Ensure the content is on top */
 }
 
-.content_header {
+.chatbot-widget .content_header {
   object-fit: cover;
   width: 100%;
   height: 40%;
   border-radius: 10px 10px 0px 0px;
 }
 
-.content_data {
+.chatbot-widget .content_data {
   overflow-y: scroll;
   height: 70%;
   position: absolute;
@@ -268,7 +271,7 @@ blockquote {
   box-shadow: 0px -1px 20px 3px #9c9393ba;
 }
 
-.content_title {
+.chatbot-widget .content_title {
   color: black;
   font-weight: 600;
   word-wrap: break-word;
@@ -278,12 +281,12 @@ blockquote {
   border-radius: 0.28571429rem;
 }
 
-.votes {
+.chatbot-widget .votes {
   font-size: 12px;
   color: lightslategray;
 }
 
-.ratings {
+.chatbot-widget .ratings {
   margin-top: 5px;
   background: #9acd32;
   padding: 5px;
@@ -291,74 +294,74 @@ blockquote {
   border-radius: 5px;
 }
 
-.user_ratings {
+.chatbot-widget .user_ratings {
   border-radius: 0.28571429rem;
   color: #fff;
   font-weight: 600;
   font-size: 15px;
 }
 
-.total_ratings {
+.chatbot-widget .total_ratings {
   font-size: 12px;
   opacity: 0.5;
   margin-left: 5px;
 }
 
-.content_data > .row .col {
+.chatbot-widget .content_data > .row .col {
   padding: 5px;
 }
 
-.metadata_1,
-.metadata_2,
-.metadata_3,
-.metadata_4,
-.row {
+.chatbot-widget .metadata_1,
+.chatbot-widget .metadata_2,
+.chatbot-widget .metadata_3,
+.chatbot-widget .metadata_4,
+.chatbot-widget .row {
   margin-bottom: 0px;
 }
 
-.metadata_1 {
+.chatbot-widget .metadata_1 {
   color: lightslategrey;
   padding: 5px;
 }
 
-.order,
-#closeContents {
+.chatbot-widget .order,
+.chatbot-widget #closeContents {
   color: #060dcfc7;
 }
 
-.metadata_2,
-.metadata_3,
-.metadata_4,
-.metadata_5,
-.metadata_6 {
+.chatbot-widget .metadata_2,
+.chatbot-widget .metadata_3,
+.chatbot-widget .metadata_4,
+.chatbot-widget .metadata_5,
+.chatbot-widget .metadata_6 {
   color: lightslategrey;
   padding: 5px;
 }
 
-.average_cost,
-.timings,
-.location,
-.cuisines {
+.chatbot-widget .average_cost,
+.chatbot-widget .timings,
+.chatbot-widget .location,
+.chatbot-widget .cuisines {
   width: 70%;
   float: right;
   margin-right: 25%;
 }
 
-.fa .fa-user-o {
+.chatbot-widget .fa .fa-user-o {
   font-size: 15px;
 }
 
-.stars-outer {
+.chatbot-widget .stars-outer {
   display: inline-block;
   position: relative;
   font-family: FontAwesome;
 }
 
-.stars-outer::before {
+.chatbot-widget .stars-outer::before {
   content: "\f006 \f006 \f006 \f006 \f006";
 }
 
-.stars-inner {
+.chatbot-widget .stars-inner {
   position: absolute;
   top: 0;
   left: 0;
@@ -367,16 +370,16 @@ blockquote {
   width: 0;
 }
 
-.stars-inner::before {
+.chatbot-widget .stars-inner::before {
   content: "\f005 \f005 \f005 \f005 \f005";
   color: #f8ce0b;
 }
 
-div.content::-webkit-scrollbar {
+.chatbot-widget div.content::-webkit-scrollbar {
   width: 0 !important;
 }
 
-div.content_data::-webkit-scrollbar {
+.chatbot-widget div.content_data::-webkit-scrollbar {
   overflow-y: hidden;
   width: 0px;
   /* remove scrollbar space /
@@ -386,14 +389,14 @@ div.content_data::-webkit-scrollbar {
 
 /* css for single card */
 
-.singleCard {
+.chatbot-widget .singleCard {
   padding-left: 10%;
   padding-right: 10px;
 }
 
 /* css for image card */
 
-.imgcard {
+.chatbot-widget .imgcard {
   object-fit: cover;
   width: 80%;
   height: 50%;
@@ -403,7 +406,7 @@ div.content_data::-webkit-scrollbar {
 
 /* css for markdown images */
 
-.imgcard_mrkdwn {
+.chatbot-widget .imgcard_mrkdwn {
   width: 80%;
   border-radius: 10px;
   margin-left: 1%;
@@ -411,7 +414,7 @@ div.content_data::-webkit-scrollbar {
 
 /* css for suggestions buttons */
 
-.suggestions {
+.chatbot-widget .suggestions {
   padding: 5px;
   width: 80%;
   border-radius: 10px;
@@ -419,17 +422,17 @@ div.content_data::-webkit-scrollbar {
   box-shadow: 2px 5px 5px 1px #dbdade;
 }
 
-.menuTitle {
+.chatbot-widget .menuTitle {
   padding: 5px;
   margin-top: 5px;
   margin-bottom: 5px;
 }
 
-.menu {
+.chatbot-widget .menu {
   padding: 5px;
 }
 
-.menuChips {
+.chatbot-widget .menuChips {
   display: block;
   background: #060dcfc7;
   color: #fff;
@@ -444,13 +447,13 @@ div.content_data::-webkit-scrollbar {
 
 /* cards carousels */
 
-.cards {
+.chatbot-widget .cards {
   display: none;
   position: relative;
   max-width: 300px;
 }
 
-.cards_scroller {
+.chatbot-widget .cards_scroller {
   overflow-x: scroll;
   overflow-y: hidden;
   display: flex;
@@ -462,11 +465,11 @@ div.content_data::-webkit-scrollbar {
   -webkit-overflow-scrolling: touch;
 }
 
-.cards_scroller img {
+.chatbot-widget .cards_scroller img {
   border-radius: 10px;
 }
 
-.cards div.note {
+.chatbot-widget .cards div.note {
   position: absolute;
   /* vertically align center */
   top: 50%;
@@ -480,7 +483,7 @@ div.content_data::-webkit-scrollbar {
   color: white;
 }
 
-.cards .arrow {
+.chatbot-widget .cards .arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -492,32 +495,32 @@ div.content_data::-webkit-scrollbar {
   z-index: 1;
 }
 
-.cards .arrow.next {
+.chatbot-widget .cards .arrow.next {
   display: none;
   font-size: 2em;
   color: #ffffff;
   right: 10px;
 }
 
-.cards .arrow.prev {
+.chatbot-widget .cards .arrow.prev {
   display: none;
   font-size: 2em;
   color: #ffffff;
   left: 10px;
 }
 
-.cards_scroller::-webkit-scrollbar {
+.chatbot-widget .cards_scroller::-webkit-scrollbar {
   width: 0 !important;
 }
 
-.cards_scroller > div.carousel_cards {
+.chatbot-widget .cards_scroller > div.carousel_cards {
   margin: 5px;
   scroll-snap-align: center;
   position: relative;
   scroll-behavior: smooth;
 }
 
-.cards_scroller div.carousel_cards {
+.chatbot-widget .cards_scroller div.carousel_cards {
   min-width: 50%;
   min-height: 70%;
   background: #b5b5b5;
@@ -541,7 +544,7 @@ div.content_data::-webkit-scrollbar {
   }
 }
 
-.in-left {
+.chatbot-widget .in-left {
   -webkit-animation-name: fadeInLeft;
   -moz-animation-name: fadeInLeft;
   -o-animation-name: fadeInLeft;
@@ -562,7 +565,7 @@ div.content_data::-webkit-scrollbar {
 
 /* css for cards within the cards carousels */
 
-.cardBackgroundImage {
+.chatbot-widget .cardBackgroundImage {
   width: 100%;
   border-radius: 5px;
   height: 100%;
@@ -570,7 +573,7 @@ div.content_data::-webkit-scrollbar {
   object-fit: cover;
 }
 
-.cardFooter {
+.chatbot-widget .cardFooter {
   background: rgba(56, 53, 60, 0.86);
   border-radius: 0px 0px 5px 5px;
   position: absolute;
@@ -583,7 +586,7 @@ div.content_data::-webkit-scrollbar {
   padding: 1px;
 }
 
-.cardTitle {
+.chatbot-widget .cardTitle {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -599,7 +602,7 @@ div.content_data::-webkit-scrollbar {
   cursor: pointer;
 }
 
-.cardDescription {
+.chatbot-widget .cardDescription {
   padding: 5px;
   font-size: 13px;
   color: white;
@@ -608,7 +611,7 @@ div.content_data::-webkit-scrollbar {
 
 /*css for dropDown messages*/
 
-.dropDownMsg {
+.chatbot-widget .dropDownMsg {
   float: left;
   margin-top: 5px;
   background: white;
@@ -623,13 +626,13 @@ div.content_data::-webkit-scrollbar {
   word-wrap: break-word;
 }
 
-.dropDownMsg > select {
+.chatbot-widget .dropDownMsg > select {
   border: 0px solid #f2f2f2;
 }
 
 /* css for quick replies */
 
-.quickReplies {
+.chatbot-widget .quickReplies {
   padding: 5px;
   position: relative;
   width: 100%;
@@ -644,17 +647,17 @@ div.content_data::-webkit-scrollbar {
   scroll-behavior: smooth;
 }
 
-.quickReplies::-webkit-scrollbar {
+.chatbot-widget .quickReplies::-webkit-scrollbar {
   width: 0 !important;
 }
 
-.quickReplies.active {
+.chatbot-widget .quickReplies.active {
   cursor: grabbing;
   cursor: -webkit-grabbing;
   transform: scale(1);
 }
 
-.chip {
+.chatbot-widget .chip {
   background-color: white;
   border: 1px solid#060dcfc7;
   color: #060dcfc7;
@@ -662,29 +665,29 @@ div.content_data::-webkit-scrollbar {
   text-align: center;
 }
 
-.chip:hover {
+.chatbot-widget .chip:hover {
   background-color: #060dcfc7;
   color: white;
 }
 
 /* css for charts */
 
-#expand:hover {
+.chatbot-widget #expand:hover {
   font-size: 18px;
 }
 
-#expand {
+.chatbot-widget #expand {
   position: absolute;
   right: 10px;
   top: 10px;
 }
 
-.modal {
+.chatbot-widget .modal {
   height: 60%;
   border-radius: 10px;
 }
 
-.chart-container {
+.chatbot-widget .chart-container {
   position: relative;
   margin: auto;
   height: 25vh;
@@ -698,7 +701,7 @@ div.content_data::-webkit-scrollbar {
 
 /* css for collapsible */
 
-.collapsible {
+.chatbot-widget .collapsible {
   margin-top: 5px;
   margin-left: 5%;
   max-width: 60%;
@@ -709,35 +712,35 @@ div.content_data::-webkit-scrollbar {
   background: white;
 }
 
-.collapsible-body {
+.chatbot-widget .collapsible-body {
   padding: 15px;
 }
 
-.collapsible-header {
+.chatbot-widget .collapsible-header {
   font-weight: bold;
   color: #060dcfc7;
 }
 
-ul.collapsible > li:first-child .collapsible-header {
+.chatbot-widget ul.collapsible > li:first-child .collapsible-header {
   border-radius: 20px 20px 0px 0px;
 }
 
-ul.collapsible > li:last-child .collapsible-header {
+.chatbot-widget ul.collapsible > li:last-child .collapsible-header {
   color: #060dcfc7;
   border-radius: 0px 0px 20px 20px;
 }
 
-ul.collapsible > li:last-child .collapsible-body {
+.chatbot-widget ul.collapsible > li:last-child .collapsible-body {
   border-bottom: none;
 }
 
-.collapsible-header {
+.chatbot-widget .collapsible-header {
   padding: 10px;
 }
 
 /* css for botTyping */
 
-.botTyping {
+.chatbot-widget .botTyping {
   float: left;
   margin-top: 5px;
   background: #e3e7ee;
@@ -752,7 +755,7 @@ ul.collapsible > li:last-child .collapsible-body {
   border-radius: 5px 20px 20px 20px;
 }
 
-.botTyping > div {
+.chatbot-widget .botTyping > div {
   width: 10px;
   height: 10px;
   background-color: #060dcfc7;
@@ -763,12 +766,12 @@ ul.collapsible > li:last-child .collapsible-body {
   margin-right: 5px;
 }
 
-.botTyping .bounce1 {
+.chatbot-widget .botTyping .bounce1 {
   -webkit-animation-delay: -0.32s;
   animation-delay: -0.32s;
 }
 
-.botTyping .bounce2 {
+.chatbot-widget .botTyping .bounce2 {
   -webkit-animation-delay: -0.16s;
   animation-delay: -0.16s;
 }
@@ -797,17 +800,17 @@ ul.collapsible > li:last-child .collapsible-body {
   }
 }
 
-input:focus {
+.chatbot-widget input:focus {
   outline: none;
 }
 
-video:focus {
+.chatbot-widget video:focus {
   outline: none;
 }
 
-.video-container iframe,
-.video-container object,
-.video-container embed {
+.chatbot-widget .video-container iframe,
+.chatbot-widget .video-container object,
+.chatbot-widget .video-container embed {
   position: absolute;
   top: 0;
   left: 0;
@@ -820,12 +823,12 @@ video:focus {
 
 /* Bot pop-up intro */
 
-.tap-target {
+.chatbot-widget .tap-target {
   color: #fff;
   background: #060dcfc7;
 }
 
-.pdf_attachment {
+.chatbot-widget .pdf_attachment {
   border: 0.5px solid #00000014;
   width: 60%;
   height: 14%;
@@ -834,7 +837,7 @@ video:focus {
   box-shadow: 2px 3px 9px 0px #9a82842e;
 }
 
-.pdf_icon {
+.chatbot-widget .pdf_icon {
   border-radius: 10px 0px 0px 10px;
   height: 100%;
   font-size: 25px;
@@ -843,13 +846,13 @@ video:focus {
   color: white;
 }
 
-.pdf_link {
+.chatbot-widget .pdf_link {
   padding: 5% !important;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.pdf_link a {
+.chatbot-widget .pdf_link a {
   color: #060dcfc7;
 }
