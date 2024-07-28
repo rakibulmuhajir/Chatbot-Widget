@@ -1,58 +1,87 @@
-document.addEventListener('DOMContentLoaded', function() {
-  // Ensure the widget container exists
-  var widgetContainer = document.getElementById('chat-widget-container');
-  if (!widgetContainer) {
-    console.error('Chat widget container not found');
-    return;
-  }
+// Include the necessary CSS and Font links
+const linkMaterialize = document.createElement('link');
+linkMaterialize.rel = 'stylesheet';
+linkMaterialize.type = 'text/css';
+linkMaterialize.href = 'https://bot.aivolutive.com/static/css/materialize.min.css';
+document.head.appendChild(linkMaterialize);
 
-  // Create the HTML structure for the widget
-  widgetContainer.innerHTML = `
-    <div class="chat-widget">
-      <div class="chat-header">
-        <img id="profile_div" class="imgProfile" src="https://bot.aivolutive.com/static/img/botAvatar.png" alt="Bot Avatar">
-        <span>Chat with us</span>
-      </div>
-      <div class="chat-body">
-        <div class="chats"></div>
-        <div class="tap-target"></div>
-      </div>
-      <div class="chat-footer">
-        <input type="text" id="userInput" placeholder="Type a message...">
-        <button id="sendButton">Send</button>
-      </div>
-      <div class="profile_div"></div>
-      <div class="widget"></div>
+const linkStyle = document.createElement('link');
+linkStyle.rel = 'stylesheet';
+linkStyle.type = 'text/css';
+linkStyle.href = 'https://bot.aivolutive.com/static/css/style.css';
+document.head.appendChild(linkStyle);
+
+const linkFontAwesome = document.createElement('link');
+linkFontAwesome.rel = 'stylesheet';
+linkFontAwesome.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';
+linkFontAwesome.integrity = 'sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=';
+linkFontAwesome.crossOrigin = 'anonymous';
+document.head.appendChild(linkFontAwesome);
+
+// Create the HTML structure for the chat widget
+const chatWidgetHTML = `
+  <div class="container">
+    <div id="modal1" class="modal">
+      <canvas id="modal-chart"></canvas>
     </div>
-  `;
+    <div class="widget">
+      <div class="chat_header">
+        <span class="chat_header_title">Sara</span>
+        <span class="dropdown-trigger" href="#" data-target="dropdown1">
+          <i class="material-icons"> more_vert </i>
+        </span>
+        <ul id="dropdown1" class="dropdown-content">
+          <li><a href="#" id="clear">Clear</a></li>
+          <li><a href="#" id="restart">Restart</a></li>
+          <li><a href="#" id="close">Close</a></li>
+        </ul>
+      </div>
+      <div class="chats" id="chats">
+        <div class="clearfix"></div>
+      </div>
+      <div class="keypad">
+        <textarea id="userInput" placeholder="Type a message..." class="usrInput"></textarea>
+        <div id="sendButton">
+          <i class="fa fa-paper-plane" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+    <div class="profile_div" id="profile_div">
+      <img class="imgProfile" src="https://bot.aivolutive.com/static/img/botAvatar.png" />
+    </div>
+    <div class="tap-target" data-target="profile_div">
+      <div class="tap-target-content">
+        <h5 class="white-text">Hey there 👋</h5>
+        <p class="white-text">I can help you get started with Rasa and answer your technical questions.</p>
+      </div>
+    </div>
+  </div>
+`;
 
-  // Load the CSS
-  var link = document.createElement('link');
-  link.rel = 'stylesheet';
-  link.type = 'text/css';
-  link.href = 'https://bot.aivolutive.com/static/css/style.css';
-  document.head.appendChild(link);
+document.getElementById('chatbot-widget-container').innerHTML = chatWidgetHTML;
 
-  // Function to load scripts in order
-  function loadScript(src, callback) {
-    var script = document.createElement('script');
-    script.src = src;
-    script.async = false; // Ensures scripts load in order
-    script.onload = callback;
-    script.onerror = function() { console.error('Failed to load script: ' + src); };
-    document.head.appendChild(script); // Append to head for better control
-  }
+// Include the necessary scripts
+const scriptJQuery = document.createElement('script');
+scriptJQuery.src = 'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js';
+document.body.appendChild(scriptJQuery);
 
-  // Load scripts in order
-  loadScript('https://bot.aivolutive.com/static/js/lib/materialize.min.js', function() {
-    loadScript('https://bot.aivolutive.com/static/js/lib/uuid.min.js', function() {
-      loadScript('https://bot.aivolutive.com/static/js/lib/chart.min.js', function() {
-        loadScript('https://bot.aivolutive.com/static/js/lib/showdown.min.js', function() {
-          loadScript('https://bot.aivolutive.com/static/js/script.js', function() {
-            console.log('All scripts loaded successfully');
-          });
-        });
-      });
-    });
-  });
-});
+const scriptMaterialize = document.createElement('script');
+scriptMaterialize.src = 'https://bot.aivolutive.com/static/js/lib/materialize.min.js';
+document.body.appendChild(scriptMaterialize);
+
+const scriptUUID = document.createElement('script');
+scriptUUID.src = 'https://bot.aivolutive.com/static/js/lib/uuid.min.js';
+document.body.appendChild(scriptUUID);
+
+const scriptChart = document.createElement('script');
+scriptChart.src = 'https://bot.aivolutive.com/static/js/lib/chart.min.js';
+document.body.appendChild(scriptChart);
+
+const scriptShowdown = document.createElement('script');
+scriptShowdown.src = 'https://bot.aivolutive.com/static/js/lib/showdown.min.js';
+document.body.appendChild(scriptShowdown);
+
+// Include the main script for the widget functionality
+const scriptMain = document.createElement('script');
+scriptMain.src = 'https://bot.aivolutive.com/static/js/script.js';
+document.body.appendChild(scriptMain);
