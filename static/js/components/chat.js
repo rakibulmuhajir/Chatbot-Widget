@@ -1,4 +1,5 @@
-
+const action_name = "action_hello_world";
+const sender_id = uuidv4();
 const BASE_URL = "http://localhost"; // Change this to your actual base URL when deploying
 const RASA_SERVER_URL = `${BASE_URL}:5005/webhooks/rest/webhook`;
 const CUSTOM_ACTION_URL = `${BASE_URL}:5055/webhook/`;
