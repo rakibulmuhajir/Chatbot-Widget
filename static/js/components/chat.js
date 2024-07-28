@@ -1,6 +1,6 @@
 // Existing constants
 const action_name = "action_hello_world";
-const sender_id = uuidv4();
+//const sender_id = uuidv4();
 
 // New constants
 const BASE_URL = "http://localhost"; // Change this to your actual base URL when deploying
