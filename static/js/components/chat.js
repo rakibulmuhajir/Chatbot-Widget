@@ -1,5 +1,5 @@
 /**
- * scroll to the bottom of the chats after new message has been added to chat
+ * scroll to the bottom of the chat after new message has been added to chat
  */
 const converter = new showdown.Converter();
 function scrollToBottomOfResults() {
