@@ -1,4 +1,36 @@
 document.addEventListener('DOMContentLoaded', function() {
+  // Ensure the widget container exists
+  var widgetContainer = document.getElementById('chat-widget-container');
+  if (!widgetContainer) {
+    console.error('Chat widget container not found');
+    return;
+  }
+
+  // Create the HTML structure for the widget
+  widgetContainer.innerHTML = `
+    <div class="chat-widget">
+      <div class="chat-header">
+        <img class="imgProfile" src="https://bot.aivolutive.com/static/img/botAvatar.png" alt="Bot Avatar">
+        <span>Chat with us</span>
+      </div>
+      <div class="chat-body">
+        <!-- Chat messages will go here -->
+      </div>
+      <div class="chat-footer">
+        <input type="text" id="userInput" placeholder="Type a message...">
+        <button id="sendButton">Send</button>
+      </div>
+    </div>
+  `;
+
+  // Load the CSS
+  var link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.type = 'text/css';
+  link.href = 'https://bot.aivolutive.com/static/css/style.css';
+  document.head.appendChild(link);
+
+  // Function to load scripts in order
   function loadScript(src, callback) {
     var script = document.createElement('script');
     script.src = src;
@@ -7,13 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
     script.onerror = function() { console.error('Failed to load script: ' + src); };
     document.head.appendChild(script); // Append to head for better control
   }
-
-  // Load the CSS
-  var link = document.createElement('link');
-  link.rel = 'stylesheet';
-  link.type = 'text/css';
-  link.href = 'https://bot.aivolutive.com/static/css/style.css';
-  document.head.appendChild(link);
 
   // Load scripts in order
   loadScript('https://bot.aivolutive.com/static/js/lib/materialize.min.js', function() {
