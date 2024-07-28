@@ -1,9 +1,10 @@
+const BASE_URL = 'https://bot.aivolutive.com';
+
 function include(file) {
     const script = document.createElement('script');
-    script.src = file;
+    script.src = BASE_URL + file;
     script.type = 'text/javascript';
     script.defer = true;
-
     document.getElementsByTagName('head').item(0).appendChild(script);
 }
 
