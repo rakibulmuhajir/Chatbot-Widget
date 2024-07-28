@@ -10,16 +10,19 @@ document.addEventListener('DOMContentLoaded', function() {
   widgetContainer.innerHTML = `
     <div class="chat-widget">
       <div class="chat-header">
-        <img class="imgProfile" src="https://bot.aivolutive.com/static/img/botAvatar.png" alt="Bot Avatar">
+        <img id="profile_div" class="imgProfile" src="https://bot.aivolutive.com/static/img/botAvatar.png" alt="Bot Avatar">
         <span>Chat with us</span>
       </div>
       <div class="chat-body">
-        <!-- Chat messages will go here -->
+        <div class="chats"></div>
+        <div class="tap-target"></div>
       </div>
       <div class="chat-footer">
         <input type="text" id="userInput" placeholder="Type a message...">
         <button id="sendButton">Send</button>
       </div>
+      <div class="profile_div"></div>
+      <div class="widget"></div>
     </div>
   `;
 
