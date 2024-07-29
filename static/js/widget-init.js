@@ -47,7 +47,7 @@ const chatWidgetHTML = `
       </div>
     </div>
     <div class="profile_div" id="profile_div">
-      <img class="imgProfile" src="https://bot.aivolutive.com/static/img/botAvatar.png" />
+      <img class="imgProfile" src="https://cdn.shopify.com/s/files/1/0003/4786/5124/files/LOGO_CURRENT_Security_Pro_Logo_Options_rev1_blue_black2.jpg?v=1716314899" />
     </div>
     <div class="tap-target" data-target="profile_div">
       <div class="tap-target-content">
