@@ -26,7 +26,7 @@ const chatWidgetHTML = `
     </div>
     <div class="widget">
       <div class="chat_header">
-        <span class="chat_header_title">Sara</span>
+        <span class="chat_header_title">SecPro Bot</span>
         <span class="dropdown-trigger" href="#" data-target="dropdown1">
           <i class="material-icons"> more_vert </i>
         </span>
