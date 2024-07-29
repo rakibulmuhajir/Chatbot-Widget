@@ -42,7 +42,7 @@ function setBotResponse(response) {
         // if there is no response from Rasa, send  fallback message to the user
         const fallbackMsg = "I am facing some issues, please try again later!!!";
   
-        const BotResponse = `<img class="botAvatar" src="./static/img/sara_avatar.png"/><p class="botMsg">${fallbackMsg}</p><div class="clearfix"></div>`;
+        const BotResponse = `<img class="botAvatar" src="https://bot.aivolutive.com/static/img/sara_avatar.png"/><p class="botMsg">${fallbackMsg}</p><div class="clearfix"></div>`;
   
         $(BotResponse).appendTo(".chats").hide().fadeIn(1000);
         scrollToBottomOfResults();
