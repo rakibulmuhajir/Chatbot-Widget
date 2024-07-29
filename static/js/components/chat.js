@@ -365,11 +365,26 @@ document.body.addEventListener('click', (event) => {
     }
 });
 
+function setImmediateBotResponse(message) {
+    hideBotTyping();
+    const botResponse = `<img class="botAvatar" src="https://bot.aivolutive.com/static/img/sara_avatar.png"/>
+        <p class="botMsg">${message}</p><div class="clearfix"></div>`;
+    $(botResponse).appendTo(".chats").hide().fadeIn(1000);
+    scrollToBottomOfResults();
+}
+
+// Update the exit intent event listener
 document.addEventListener('mouseout', (event) => {
     if (event.clientY <= 0) {
         console.log('Exit intent detected');
-        sendEventToRasa('exit_intent', {});
-        // Optionally trigger a custom action for exit intent
+        //sendEventToRasa('exit_intent', {});
+        
+        // Immediate bot response with discount code
+        const discountCode = "SAVE20NOW";
+        const exitMessage = `Before you go! Here's a special offer just for you. Use code <span style="color: #ff6600; font-weight: bold;">${discountCode}</span> for 20% off your purchase!`;
+        setImmediateBotResponse(exitMessage);
+        
+        // Optionally, still trigger the custom action for backend processing
         customActionTrigger('action_handle_exit_intent');
     }
 });
