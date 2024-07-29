@@ -47,7 +47,7 @@ const chatWidgetHTML = `
       </div>
     </div>
     <div class="profile_div" id="profile_div">
-      <img class="imgProfile" src="https://cdn.shopify.com/s/files/1/0003/4786/5124/files/LOGO_CURRENT_Security_Pro_Logo_Options_rev1_blue_black2.jpg?v=1716314899" />
+      <img class="imgProfile" src="https://cdn.shopify.com/s/files/1/0003/4786/5124/files/SP_Logo_copy_resize_150x_21811a66-dd74-4093-8973-93303b49e68e.webp?v=1699920602" />
     </div>
     <div class="tap-target" data-target="profile_div">
       <div class="tap-target-content">
