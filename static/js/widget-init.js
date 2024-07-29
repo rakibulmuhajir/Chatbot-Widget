@@ -27,14 +27,16 @@ const chatWidgetHTML = `
     <div class="widget">
       <div class="chat_header">
         <span class="chat_header_title">SecPro Bot</span>
-        <span class="dropdown-trigger" href="#" data-target="dropdown1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>
+        <span class="dropdown-trigger" id="close" href="#" data-target="dropdown1">
+         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47c-9.4-9.4-24.6-9.4-33.9 0z"/></svg>
         </span>
+        <!--
         <ul id="dropdown1" class="dropdown-content">
           <li><a href="#" id="clear">Clear</a></li>
           <li><a href="#" id="restart">Restart</a></li>
           <li><a href="#" id="close">Close</a></li>
         </ul>
+        -->
       </div>
       <div class="chats" id="chats">
         <div class="clearfix"></div>
