@@ -216,6 +216,14 @@
   margin-top: 3%;
 }
 
+.chatbot-widget .dropdown-trigger svg{
+  width: 28px;
+  height:  28px;
+}
+.chatbot-widget .dropdown-trigger svg path{
+  fill: white;
+}
+
 .chatbot-widget .dropdown-content li > a,
 .chatbot-widget .dropdown-content li > span {
   color: #060dcfc7;
