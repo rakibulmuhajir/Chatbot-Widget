@@ -1,3 +1,5 @@
+// At the top of your script, add this line to get the exit intent message
+const exitIntentMessage = window.chatWidgetConfig?.exitIntentMessage || "Before you go! Here's a special offer just for you.";
 /**
  * scroll to the bottom of the chat after new message has been added to chat
  */
@@ -373,26 +375,39 @@ function setImmediateBotResponse(message) {
     scrollToBottomOfResults();
 }
 
-// Update the exit intent event listener
-document.addEventListener('mouseout', (event) => {
-    if (event.clientY <= 0) {
-        console.log('Exit intent detected');
-        //sendEventToRasa('exit_intent', {});
-        
-        // Immediate bot response with discount code
-        const discountCode = "SAVE20NOW";
-        const exitMessage = `Before you go! Here's a special offer just for you. Use code <span style="color: #ff6600; font-weight: bold;">${discountCode}</span> for 20% off your purchase!`;
-        setImmediateBotResponse(exitMessage);
-        
-        // Optionally, still trigger the custom action for backend processing
-        customActionTrigger('action_handle_exit_intent');
-    }
-});
+// Function to check if exit intent message has been shown
+function hasExitIntentMessageBeenShown() {
+    return localStorage.getItem('exitIntentMessageShown') === 'true';
+}
 
-window.addEventListener('beforeunload', (event) => {
-    console.log('Page unload detected');
-    sendEventToRasa('exit_intent', {});
-});
+// Function to set exit intent message as shown
+function setExitIntentMessageAsShown() {
+    localStorage.setItem('exitIntentMessageShown', 'true');
+}
+
+// Function to reset exit intent message state
+function resetExitIntentMessageState() {
+    localStorage.removeItem('exitIntentMessageShown');
+}
+
+// Modified handleExitIntent function
+function handleExitIntent(event) {
+    if (event.clientY <= 0 && !hasExitIntentMessageBeenShown()) {
+        console.log('Exit intent detected');
+        
+        // Show the exit intent message
+        setImmediateBotResponse(exitIntentMessage);
+        
+        // Mark the exit intent message as shown
+        setExitIntentMessageAsShown();
+    }
+}
+
+// Add event listener for page unload
+window.addEventListener('beforeunload', resetExitIntentMessageState);
+
+// Existing event listener for mouseout
+document.addEventListener('mouseout', handleExitIntent);
 
 // User input handling
 $(".usrInput").on("keyup keypress", (e) => {
