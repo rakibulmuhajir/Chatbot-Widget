@@ -89,7 +89,7 @@ function setBotResponse(response) {
               } else {
                 // if no markdown formatting found, render the text as it is.
                 if (!botResponse) {
-                  botResponse = `<img class="botAvatar" src="./static/img/sara_avatar.png"/><p class="botMsg">${response[i].text}</p><div class="clearfix"></div>`;
+                  botResponse = `<img class="botAvatar" src="https://bot.aivolutive.com/static/img/sara_avatar.png"/><p class="botMsg">${response[i].text}</p><div class="clearfix"></div>`;
                 }
               }
               // append the bot response on to the chat screen
