@@ -52,7 +52,7 @@ const chatWidgetHTML = `
     <div class="tap-target" data-target="profile_div">
       <div class="tap-target-content">
         <h5 class="white-text">Hey there 👋</h5>
-        <p class="white-text">I can help you get started with Rasa and answer your technical questions.</p>
+        <p class="white-text">I can help you get order status and search products for you.</p>
       </div>
     </div>
   </div>
