@@ -312,7 +312,7 @@ function handlePageChange() {
         pageType = 'product';
         pageData.productHandle = page.split('/').pop();
     } else {
-        pageType = 'other';
+        pageType = 'Page Type: other';
     }
 
     console.log(`Page changed: ${pageType}`, pageData);
