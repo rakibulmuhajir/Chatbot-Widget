@@ -216,17 +216,24 @@ function setBotResponse(response) {
         }
         scrollToBottomOfResults();
       }
-      $(".usrInput").focus();
+      // Re-enable the user input after setting the bot's response
+        $(".usrInput").prop('disabled', false);
+        $(".usrInput").focus();
     }, 500);
   }
-
 /**
  * sends the user message to the rasa server,
  * @param {String} message user message
  */
 async function send(message) {
-    await new Promise((r) => setTimeout(r, 2000));
-    sendToRasa(message);
+    try {
+        await new Promise((r) => setTimeout(r, 2000));
+        await sendToRasa(message);
+    } catch (error) {
+        console.error('Error sending message to Rasa:', error);
+        // Re-enable the user input in case of error
+        $(".usrInput").prop('disabled', false);
+    }
 }
 
 function sendToRasa(message) {
@@ -235,7 +242,7 @@ function sendToRasa(message) {
         message: message
     };
 
-    fetch(RASA_SERVER_URL, {
+    return fetch(RASA_SERVER_URL, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -247,11 +254,16 @@ function sendToRasa(message) {
         console.log('Response from Rasa:', botResponse);
         if (botResponse.length > 0) {
             setBotResponse(botResponse);
+        } else {
+            // If no response, still re-enable the input
+            $(".usrInput").prop('disabled', false);
         }
     })
     .catch(error => {
         console.error('Error sending message to Rasa:', error);
-        setBotResponse("");
+        setBotResponse([]);
+        // Re-enable the input in case of error
+        $(".usrInput").prop('disabled', false);
     });
 }
 
