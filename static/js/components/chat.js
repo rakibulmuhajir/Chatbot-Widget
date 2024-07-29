@@ -311,10 +311,14 @@ function handlePageChange() {
     } else if (page.includes('/products/')) {
         pageType = 'product';
         pageData.productHandle = page.split('/').pop();
+    } else {
+        pageType = 'other';
     }
 
     console.log(`Page changed: ${pageType}`, pageData);
-    sendEventToRasa('page_change', { page_type: pageType, ...pageData });
+    //sendEventToRasa('page_change', { page_type: pageType, ...pageData });
+    setImmediateBotResponse(pageType);
+    
 }
 
 window.handleAddToCart = function(variantId) {
