@@ -32,7 +32,7 @@ function setUserResponse(message) {
 function getBotResponse(text) {
     return `<div class="message-container bot">
               <img class="botAvatar" src="https://bot.aivolutive.com/static/img/sara_avatar.png"/>
-              <span class="botMsg">${text}</span>
+              <p class="botMsg">${text}</p>
             </div>`;
 }
 
