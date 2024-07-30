@@ -354,8 +354,10 @@ function handlePageChange() {
     }
 
     console.log(`Page changed: ${pageType}`, pageData);
-    sendEventToRasa('page_change', { page_type: pageType, ...pageData });
-    setImmediateBotResponse(pageType);
+
+    if (pageType === 'product') {
+        sendEventToRasa('page_change', { page_type: pageType, ...pageData });
+    }
 }
 window.handleAddToCart = function(variantId) {
     console.log(`Adding variant ${variantId} to cart`);
