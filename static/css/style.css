@@ -242,8 +242,8 @@
   border-radius: 50%;
   width: 30px;
   height: 30px;
-  float: right;
   margin: 5px;
+  align-self: flex-end;
 }
 
 .chatbot-widget .keypad {
