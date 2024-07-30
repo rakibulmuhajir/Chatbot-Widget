@@ -97,11 +97,16 @@
 
 .chatbot-widget .usrInput {
   flex-grow: 1;
-  border: 1px solid #e3e7ee;
-  padding: 10px;
+  border: none;
+  background: #f0f0f0;
+  padding: 10px 15px;
   font-size: 14px;
-  border-radius: 20px;
+  border-radius: 25px;
   margin-right: 10px;
+}
+
+.chatbot-widget .usrInput::placeholder {
+  color: #999;
 }
 
 .chatbot-widget #sendButton {
@@ -114,8 +119,19 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  font-size: 20px;
   border: none;
+  padding: 0;
+}
+
+.chatbot-widget #sendButton svg {
+  width: 20px;
+  height: 20px;
+  fill: white;
+}
+
+/* Add styles for the paper airplane icon */
+.chatbot-widget .send-icon {
+  transform: rotate(45deg);
 }
 
 /* Additional styles to ensure proper message alignment */
