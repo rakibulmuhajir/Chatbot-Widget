@@ -448,7 +448,7 @@ function handleExitIntent(event) {
         console.log('Exit intent detected');
         
         // Show the exit intent message
-        setImmediateBotResponse(exitIntentMessage);
+        //setImmediateBotResponse(exitIntentMessage);
         
         // Mark the exit intent message as shown
         setExitIntentMessageAsShown();
