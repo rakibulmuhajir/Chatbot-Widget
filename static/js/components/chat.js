@@ -63,6 +63,7 @@ function setBotResponse(response) {
                 .replaceAll("<strong>", "<b>")
                 .replaceAll("</strong>", "</b>");
               html = html.replace(/(?:\r\n|\r|\n)/g, "<br>");
+                typeBotResponse(html);
               console.log(html);
               // check for blockquotes
               if (html.includes("<blockquote>")) {
@@ -221,6 +222,27 @@ function setBotResponse(response) {
         $(".usrInput").focus();
     }, 500);
   }
+
+function typeBotResponse(text) {
+    const botResponseDiv = document.createElement("div");
+    botResponseDiv.className = "botMsg";
+    botResponseDiv.innerHTML = '<img class="botAvatar" src="https://bot.aivolutive.com/static/img/sara_avatar.png"/>';
+    document.querySelector(".chats").appendChild(botResponseDiv);
+
+    let index = 0;
+    function typeWriter() {
+        if (index < text.length) {
+            botResponseDiv.innerHTML += text.charAt(index);
+            index++;
+            setTimeout(typeWriter, 50);
+        } else {
+            botResponseDiv.innerHTML += '<div class="clearfix"></div>';
+            scrollToBottomOfResults();
+        }
+    }
+    typeWriter();
+}
+
 /**
  * sends the user message to the rasa server,
  * @param {String} message user message
