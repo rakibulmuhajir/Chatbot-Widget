@@ -1,9 +1,9 @@
 // Include the necessary CSS and Font links
-const linkMaterialize = document.createElement('link');
+/*const linkMaterialize = document.createElement('link');
 linkMaterialize.rel = 'stylesheet';
 linkMaterialize.type = 'text/css';
 linkMaterialize.href = 'https://bot.aivolutive.com/static/css/materialize.min.css';
-document.head.appendChild(linkMaterialize);
+document.head.appendChild(linkMaterialize);*/
 
 const linkStyle = document.createElement('link');
 linkStyle.rel = 'stylesheet';
@@ -42,7 +42,7 @@ const chatWidgetHTML = `
         <div class="clearfix"></div>
       </div>
       <div class="keypad">
-        <textarea id="userInput" placeholder="Type a message..." class="usrInput"></textarea>
+        <textarea id="userInput" placeholder="Start by saying hello/hi..." class="usrInput"></textarea>
         <div id="sendButton">
           <i class="fa fa-paper-plane" aria-hidden="true"></i>
         </div>
