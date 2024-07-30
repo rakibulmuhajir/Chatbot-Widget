@@ -39,7 +39,7 @@ const chatWidgetHTML = `
         <div class="clearfix"></div>
       </div>
      <div class="keypad">
-  <input type="text" class="usrInput" placeholder="Start by saying hello/hi...">
+  <input type="text" class="usrInput" placeholder="Start by saying hello/hi....">
   <button id="sendButton">
     <svg class="send-icon" viewBox="0 0 24 24">
       <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
