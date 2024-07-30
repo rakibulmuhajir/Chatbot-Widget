@@ -68,19 +68,19 @@ document.getElementById('chatbot-widget-container').innerHTML = chatWidgetHTML;
 const scriptJQuery = document.createElement('script');
 scriptJQuery.src = 'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js';
 document.body.appendChild(scriptJQuery);
-
+/*
 const scriptMaterialize = document.createElement('script');
 scriptMaterialize.src = 'https://bot.aivolutive.com/static/js/lib/materialize.min.js';
 document.body.appendChild(scriptMaterialize);
-
+*/
 const scriptUUID = document.createElement('script');
 scriptUUID.src = 'https://bot.aivolutive.com/static/js/lib/uuid.min.js';
 document.body.appendChild(scriptUUID);
-
+/*
 const scriptChart = document.createElement('script');
 scriptChart.src = 'https://bot.aivolutive.com/static/js/lib/chart.min.js';
 document.body.appendChild(scriptChart);
-
+*/
 const scriptShowdown = document.createElement('script');
 scriptShowdown.src = 'https://bot.aivolutive.com/static/js/lib/showdown.min.js';
 document.body.appendChild(scriptShowdown);
