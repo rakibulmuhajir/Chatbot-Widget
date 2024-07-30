@@ -129,11 +129,11 @@
   fill: white;
 }
 
-/* Add styles for the paper airplane icon */
+/* Add styles for the paper airplane icon
 .chatbot-widget .send-icon {
   transform: rotate(45deg);
 }
-
+*/
 /* Additional styles to ensure proper message alignment */
 .chatbot-widget .botWrapper,
 .chatbot-widget .userWrapper {
