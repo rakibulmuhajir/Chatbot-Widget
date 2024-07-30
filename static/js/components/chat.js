@@ -14,7 +14,10 @@ function scrollToBottomOfResults() {
  * @param {String} message user message
  */
 function setUserResponse(message) {
-    const user_response = `<img class="userAvatar" src='https://bot.aivolutive.com/static/img/userAvatar.jpg'><p class="userMsg">${message} </p><div class="clearfix"></div>`;
+    const user_response = `<div class="message-container user">
+                             <img class="userAvatar" src='https://bot.aivolutive.com/static/img/userAvatar.jpg'>
+                             <p class="userMsg">${message}</p>
+                           </div>`;
     $(user_response).appendTo(".chats").show("slow");
 
     $(".usrInput").val("");
@@ -22,14 +25,15 @@ function setUserResponse(message) {
     showBotTyping();
     $(".suggestions").remove();
 }
-
 /**
  * returns formatted bot response
  * @param {String} text bot message response's text
  */
 function getBotResponse(text) {
-    botResponse = `<img class="botAvatar" src="https://bot.aivolutive.com/static/img/sara_avatar.png"/><span class="botMsg">${text}</span><div class="clearfix"></div>`;
-    return botResponse;
+    return `<div class="message-container bot">
+              <img class="botAvatar" src="https://bot.aivolutive.com/static/img/sara_avatar.png"/>
+              <span class="botMsg">${text}</span>
+            </div>`;
 }
 
 /**
