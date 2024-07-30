@@ -38,12 +38,14 @@ const chatWidgetHTML = `
       <div class="chats" id="chats">
         <div class="clearfix"></div>
       </div>
-      <div class="keypad">
-        <textarea id="userInput" placeholder="Start by saying hello/hi..." class="usrInput"></textarea>
-        <div id="sendButton">
-          <i class="fa fa-paper-plane" aria-hidden="true"></i>
-        </div>
-      </div>
+     <div class="keypad">
+  <input type="text" class="usrInput" placeholder="Start by saying hello/hi...">
+  <button id="sendButton">
+    <svg class="send-icon" viewBox="0 0 24 24">
+      <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+    </svg>
+  </button>
+</div>
     </div>
     <div class="profile_div" id="profile_div">
       <img class="imgProfile" src="https://cdn.shopify.com/s/files/1/0003/4786/5124/files/SP_Logo_copy_resize_150x_21811a66-dd74-4093-8973-93303b49e68e.webp?v=1699920602" />
