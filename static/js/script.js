@@ -30,8 +30,9 @@ window.addEventListener('load', () => {
     // Bot pop-up intro
     $("div").removeClass("tap-target-origin");
 
+   
     // drop down menu for close, restart conversation & clear the chats.
-    $(".dropdown-trigger").dropdown();
+    //$(".dropdown-trigger").dropdown();
 
     // initiate the modal for displaying the charts,
     // if you dont have charts, then you comment the below line
