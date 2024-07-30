@@ -51,12 +51,14 @@ const chatWidgetHTML = `
     <div class="profile_div" id="profile_div">
       <img class="imgProfile" src="https://cdn.shopify.com/s/files/1/0003/4786/5124/files/SP_Logo_copy_resize_150x_21811a66-dd74-4093-8973-93303b49e68e.webp?v=1699920602" />
     </div>
+    /*
     <div class="tap-target" data-target="profile_div">
       <div class="tap-target-content">
         <h5 class="white-text">Hey there 👋</h5>
         <p class="white-text">I can help you get order status and search products for you.</p>
       </div>
     </div>
+    */
   </div>
 `;
 
