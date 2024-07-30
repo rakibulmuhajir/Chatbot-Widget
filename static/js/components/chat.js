@@ -307,6 +307,16 @@ function handlePageChange() {
         pageType = 'home';
     } else if (page.includes('/collections/') && page.includes('/products/')) {
         pageType = 'product';
+        
+        // Extracting product ID using ShopifyAnalytics object
+        if (typeof ShopifyAnalytics !== 'undefined' && ShopifyAnalytics.meta && ShopifyAnalytics.meta.product) {
+            const productId = ShopifyAnalytics.meta.product.id;
+            pageData.productId = productId;
+        } else {
+            console.error("Product ID not found in ShopifyAnalytics object.");
+            return;
+        }
+
         const pathParts = page.split('/');
         pageData.collectionHandle = pathParts[pathParts.length - 3];
         pageData.productHandle = pathParts[pathParts.length - 1];
@@ -318,10 +328,9 @@ function handlePageChange() {
     }
 
     console.log(`Page changed: ${pageType}`, pageData);
-    //sendEventToRasa('page_change', { page_type: pageType, ...pageData });
+    sendEventToRasa('page_change', { page_type: pageType, ...pageData });
     setImmediateBotResponse(pageType);
 }
-
 window.handleAddToCart = function(variantId) {
     console.log(`Adding variant ${variantId} to cart`);
     fetch('/cart/add.js', {
