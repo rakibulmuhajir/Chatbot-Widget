@@ -21,9 +21,6 @@ document.head.appendChild(linkFontAwesome);
 // Create the HTML structure for the chat widget
 const chatWidgetHTML = `
   <div class="container">
-    <div id="modal1" class="modal">
-      <canvas id="modal-chart"></canvas>
-    </div>
     <div class="widget">
       <div class="chat_header">
         <span class="chat_header_title">SecPro Bot</span>
