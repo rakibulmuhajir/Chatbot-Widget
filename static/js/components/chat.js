@@ -305,20 +305,21 @@ function handlePageChange() {
 
     if (page === '/') {
         pageType = 'home';
+    } else if (page.includes('/collections/') && page.includes('/products/')) {
+        pageType = 'product';
+        const pathParts = page.split('/');
+        pageData.collectionHandle = pathParts[pathParts.length - 3];
+        pageData.productHandle = pathParts[pathParts.length - 1];
     } else if (page.includes('/collections/')) {
         pageType = 'collection';
         pageData.collectionHandle = page.split('/').pop();
-    } else if (page.includes('/products/')) {
-        pageType = 'product';
-        pageData.productHandle = page.split('/').pop();
     } else {
-        pageType = 'Page Type: other';
+        pageType = 'other';
     }
 
     console.log(`Page changed: ${pageType}`, pageData);
     //sendEventToRasa('page_change', { page_type: pageType, ...pageData });
     setImmediateBotResponse(pageType);
-    
 }
 
 window.handleAddToCart = function(variantId) {
