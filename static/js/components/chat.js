@@ -279,7 +279,10 @@ function sendToRasa(message) {
     .then(botResponse => {
         console.log('Response from Rasa:', botResponse);
         if (botResponse.length > 0) {
-            setBotResponse(botResponse);
+             botResponse.forEach(response => {
+                if (response.text) {
+                    typeBotResponse(response.text);
+                }
         } else {
             // If no response, still re-enable the input
             $(".usrInput").prop('disabled', false);
