@@ -2,9 +2,9 @@
 
 .chatbot-widget .widget {
   display: none;
-  width: 500px;
+  width: 450px;
   right: 15px;
-  height: 700px;
+  height: 500px;
   bottom: 5%;
   position: fixed;
   background: #fff;
@@ -26,7 +26,7 @@
 }
 
 .chatbot-widget .chats {
-  height: 680px;
+  height: 480px;
   padding: 10px;
   overflow-y: auto;
 }
