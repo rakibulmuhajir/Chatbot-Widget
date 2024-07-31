@@ -331,7 +331,7 @@ function handlePageChange() {
 
     if (page === '/') {
         pageType = 'home';
-    } else if (page.includes('/collections/') && page.includes('/products/')) {
+    } else if (/*page.includes('/collections/') && */page.includes('/products/')) {
         pageType = 'product';
         
         // Extracting product ID using ShopifyAnalytics object
