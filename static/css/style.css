@@ -4,7 +4,7 @@
   display: none;
   width: 500px;
   right: 15px;
-  height: 750px;
+  height: 700px;
   bottom: 5%;
   position: fixed;
   background: #fff;
@@ -26,7 +26,7 @@
 }
 
 .chatbot-widget .chats {
-  height: 480px;
+  height: 680px;
   padding: 10px;
   overflow-y: auto;
 }
