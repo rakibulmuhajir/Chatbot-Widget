@@ -279,7 +279,7 @@ function sendToRasa(message) {
     .then(botResponse => {
         console.log('Response from Rasa:', botResponse);
         if (botResponse.length > 0) {
-            typeBotResponse(botResponse);
+            setBotResponse(botResponse);
         } else {
             // If no response, still re-enable the input
             $(".usrInput").prop('disabled', false);
@@ -287,7 +287,7 @@ function sendToRasa(message) {
     })
     .catch(error => {
         console.error('Error sending message to Rasa:', error);
-        setBotResponse([]);
+        setBotResponse("");
         // Re-enable the input in case of error
         $(".usrInput").prop('disabled', false);
     });
