@@ -67,7 +67,7 @@ function setBotResponse(response) {
                 .replaceAll("<strong>", "<b>")
                 .replaceAll("</strong>", "</b>");
               html = html.replace(/(?:\r\n|\r|\n)/g, "<br>");
-                typeBotResponse(html);
+                //typeBotResponse(html);
               console.log(html);
               // check for blockquotes
               if (html.includes("<blockquote>")) {
@@ -279,11 +279,12 @@ function sendToRasa(message) {
     .then(botResponse => {
         console.log('Response from Rasa:', botResponse);
         if (botResponse.length > 0) {
-             botResponse.forEach(response => {
+             setBotResponse(botResponse);
+            /* botResponse.forEach(response => {
                 if (response.text) {
                     typeBotResponse(response.text);
                 }
-             });
+             });*/
         } else {
             // If no response, still re-enable the input
             $(".usrInput").prop('disabled', false);
