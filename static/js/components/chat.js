@@ -283,7 +283,7 @@ function sendToRasa(message) {
                 if (response.text) {
                     typeBotResponse(response.text);
                 }
-             }
+             });
         } else {
             // If no response, still re-enable the input
             $(".usrInput").prop('disabled', false);
