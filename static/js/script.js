@@ -29,7 +29,7 @@ window.addEventListener('load', () => {
   $(document).ready(() => {
     // Bot pop-up intro
     $("div").removeClass("tap-target-origin");
-$("#profile_div").click();
+    //$("#profile_div").click();
    
     // drop down menu for close, restart conversation & clear the chats.
     //$(".dropdown-trigger").dropdown();
