@@ -48,7 +48,7 @@ const chatWidgetHTML = `
 </div>
     </div>
     <div class="profile_div" id="profile_div">
-      <img class="imgProfile" src="https://cdn.shopify.com/s/files/1/0003/4786/5124/files/SP_Logo_copy_resize_150x_21811a66-dd74-4093-8973-93303b49e68e.webp?v=1699920602" />
+      <img class="imgProfile" src="https://cdn.shopify.com/s/files/1/0003/4786/5124/files/Security-pro-logo.png?v=1682665951" />
     </div>
   
   </div>
