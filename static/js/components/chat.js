@@ -32,7 +32,7 @@ function setUserResponse(message) {
  */
 function getBotResponse(text) {
     return `<div class="message-container bot">
-              <img class="botAvatar" src="https://cdn.shopify.com/s/files/1/0003/4786/5124/files/Security-pro-logo.png?v=1682665951"/>
+              <img class="botAvatar" src="https://cdn.shopify.com/s/files/1/0003/4786/5124/files/Security-pro-logo.png?v=1723305472"/>
               <p class="botMsg">${text}</p>
             </div>`;
 }
@@ -49,7 +49,7 @@ function setBotResponse(response) {
         // if there is no response from Rasa, send  fallback message to the user
         const fallbackMsg = "I am facing some issues, please try again later!!!";
   
-        const BotResponse = `<img class="botAvatar" src="https://bot.aivolutive.com/static/img/sara_avatar.png"/><p class="botMsg">${fallbackMsg}</p><div class="clearfix"></div>`;
+        const BotResponse = `<img class="botAvatar" src="https://cdn.shopify.com/s/files/1/0003/4786/5124/files/Security-pro-logo.png?v=1723305472"/><p class="botMsg">${fallbackMsg}</p><div class="clearfix"></div>`;
   
         $(BotResponse).appendTo(".chats").hide().fadeIn(1000);
         scrollToBottomOfResults();
@@ -97,7 +97,7 @@ function setBotResponse(response) {
               } else {
                 // if no markdown formatting found, render the text as it is.
                 if (!botResponse) {
-                  botResponse = `<img class="botAvatar" src="https://bot.aivolutive.com/static/img/sara_avatar.png"/><p class="botMsg">${response[i].text}</p><div class="clearfix"></div>`;
+                  botResponse = `<img class="botAvatar" src="https://cdn.shopify.com/s/files/1/0003/4786/5124/files/Security-pro-logo.png?v=1723305472"/><p class="botMsg">${response[i].text}</p><div class="clearfix"></div>`;
                 }
               }
               // append the bot response on to the chat screen
@@ -231,7 +231,7 @@ function setBotResponse(response) {
 function typeBotResponse(text) {
     const botResponseDiv = document.createElement("div");
     botResponseDiv.className = "botMsg";
-    botResponseDiv.innerHTML = '<img class="botAvatar" src="https://bot.aivolutive.com/static/img/sara_avatar.png"/>';
+    botResponseDiv.innerHTML = '<img class="botAvatar" src="https://cdn.shopify.com/s/files/1/0003/4786/5124/files/Security-pro-logo.png?v=1723305472"/>';
     document.querySelector(".chats").appendChild(botResponseDiv);
 
     let index = 0;
@@ -430,7 +430,7 @@ document.body.addEventListener('click', (event) => {
 
 function setImmediateBotResponse(message) {
     hideBotTyping();
-    const botResponse = `<img class="botAvatar" src="https://bot.aivolutive.com/static/img/sara_avatar.png"/>
+    const botResponse = `<img class="botAvatar" src="https://cdn.shopify.com/s/files/1/0003/4786/5124/files/Security-pro-logo.png?v=1723305472"/>
         <p class="botMsg">${message}</p><div class="clearfix"></div>`;
     $(botResponse).appendTo(".chats").hide().fadeIn(1000);
     scrollToBottomOfResults();
