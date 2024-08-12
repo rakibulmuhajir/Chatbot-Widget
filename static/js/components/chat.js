@@ -5,6 +5,7 @@ const converter = new showdown.Converter();
 function scrollToBottomOfResults() {
   const terminalResultsDiv = document.getElementById("chats");
   terminalResultsDiv.scrollTop = terminalResultsDiv.scrollHeight;
+  
 }
 
 /**
