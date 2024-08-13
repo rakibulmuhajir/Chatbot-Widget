@@ -1,6 +1,6 @@
 // At the top of your script, add this line to get the exit intent message
 const exitIntentMessage = window.chatWidgetConfig?.exitIntentMessage || "Before you go! Here's a special offer just for you.";
-const helpMessage = `I'm SecPro Bot. I can help you with product search, order status, and store policies. I can also give you exclusive discounts 🤫. just ask for it`;
+const helpMessage = `Hello! I am Rambo, Security Pro USA's top chatbot. I can assist you with product searches, order status updates, and store policy questions. Looking for a discount 🤫? Just ask!`;
 /**
  * scroll to the bottom of the chat after new message has been added to chat
  */
