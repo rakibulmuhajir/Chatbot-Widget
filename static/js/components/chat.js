@@ -389,8 +389,8 @@ function handlePageChange() {
         sendEventToRasa('page_change', { page_type: pageType, ...pageData });
     }
 }
-window.handleAddToCart = function(variantId) {
-    console.log(`Adding variant ${variantId} to cart`);
+function handleAddToCart(variantId, quantity = 1) {
+    console.log(`Adding variant ${variantId} to cart, quantity: ${quantity}`);
     fetch('/cart/add.js', {
         method: 'POST',
         headers: {
@@ -399,20 +399,20 @@ window.handleAddToCart = function(variantId) {
         body: JSON.stringify({
             items: [{
                 id: variantId,
-                quantity: 1
+                quantity: quantity
             }]
         })
     })
     .then(response => response.json())
     .then(data => {
         console.log('Product added to cart:', data);
-        sendEventToRasa('cart_updated', { action: 'add', variantId: variantId });
+        // You can update the UI or show a confirmation message here
     })
     .catch((error) => {
-        console.error('Error:', error);
-        sendEventToRasa('cart_error', { action: 'add', variantId: variantId, error: error.message });
+        console.error('Error adding product to cart:', error);
+        // Handle the error, maybe show an error message to the user
     });
-};
+}
 
 window.handleCheckout = function() {
     console.log('Initiating checkout');
