@@ -135,6 +135,7 @@ function setBotResponse(response) {
           }
           // check if the response contains "custom" message
           if (Object.hasOwnProperty.call(response[i], "custom")) {
+              console.log("resp:", response[i]);
            const { payload } = response[i].custom;
     console.log("Payload:", payload);
 
