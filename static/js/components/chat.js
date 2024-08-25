@@ -114,12 +114,19 @@ function setBotResponse(response) {
             }
           }
   
-          // check if the response contains "buttons"
-          if (Object.hasOwnProperty.call(response[i], "buttons")) {
-            if (response[i].buttons.length > 0) {
-              addSuggestion(response[i].buttons);
-            }
-          }
+         if (Object.hasOwnProperty.call(response[i], "buttons")) {
+    console.log("Button or add_to_cart response detected:", response[i]);
+    
+    if (response[i].buttons.length > 0) {
+        addSuggestion(response[i].buttons);
+    } else if (response[i].custom && response[i].custom.payload === "add_to_cart") {
+        console.log("Add to cart action detected");
+        const { variantId, quantity } = response[i].custom;
+        handleAddToCart(variantId, quantity || 1);
+    } else {
+        console.log("Unexpected button or add_to_cart structure:", response[i]);
+    }
+}
   
           // check if the response contains "attachment"
           if (Object.hasOwnProperty.call(response[i], "attachment")) {
