@@ -137,7 +137,7 @@ function setBotResponse(response) {
           if (Object.hasOwnProperty.call(response[i], "custom")) {
               
             const { payload } = response[i].custom;
-
+console.log(payload)
                if (payload === "add_to_cart") {
         handleAddToCart(custom.variantId, custom.quantity || 1);
         }
