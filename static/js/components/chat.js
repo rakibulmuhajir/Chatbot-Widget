@@ -135,12 +135,14 @@ function setBotResponse(response) {
           }
           // check if the response contains "custom" message
           if (Object.hasOwnProperty.call(response[i], "custom")) {
-              
-            const { payload } = response[i].custom;
-console.log("Payludo: " + payload)
-               if (payload === "add_to_cart") {
-        handleAddToCart(custom.variantId, custom.quantity || 1);
-        }
+           const { payload } = response[i].custom;
+    console.log("Payload:", payload);
+
+    if (payload === "add_to_cart") {
+        console.log("Add to cart action detected");
+        const { variantId, quantity } = response[i].custom;
+        handleAddToCart(variantId, quantity || 1);
+    }
             if (payload === "quickReplies") {
               // check if the custom payload type is "quickReplies"
               const quickRepliesData = response[i].custom.data;
