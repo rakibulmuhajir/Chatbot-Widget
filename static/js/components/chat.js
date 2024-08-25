@@ -135,7 +135,12 @@ function setBotResponse(response) {
           }
           // check if the response contains "custom" message
           if (Object.hasOwnProperty.call(response[i], "custom")) {
+              
             const { payload } = response[i].custom;
+
+               if (payload === "add_to_cart") {
+        handleAddToCart(custom.variantId, custom.quantity || 1);
+        }
             if (payload === "quickReplies") {
               // check if the custom payload type is "quickReplies"
               const quickRepliesData = response[i].custom.data;
@@ -366,7 +371,7 @@ function handlePageChange() {
         sendEventToRasa('page_change', { page_type: pageType, ...pageData });
     }
 }
-window.handleAddToCart = function(variantId) {
+window.handleAddToCart = function(variantId, quantity = 1) {
     console.log(`Adding variant ${variantId} to cart`);
     fetch('/cart/add.js', {
         method: 'POST',
@@ -376,14 +381,15 @@ window.handleAddToCart = function(variantId) {
         body: JSON.stringify({
             items: [{
                 id: variantId,
-                quantity: 1
+                quantity: quantity
             }]
         })
     })
     .then(response => response.json())
     .then(data => {
         console.log('Product added to cart:', data);
-        sendEventToRasa('cart_updated', { action: 'add', variantId: variantId });
+        sendEventToRasa('cart_updated', { action: 'add', variantId: variantId, quantity: quantity });
+        // Update cart UI here if necessary
     })
     .catch((error) => {
         console.error('Error:', error);
@@ -393,27 +399,8 @@ window.handleAddToCart = function(variantId) {
 
 window.handleCheckout = function() {
     console.log('Initiating checkout');
-    fetch('/cart', {
-        method: 'GET',
-    })
-    .then(response => response.text())
-    .then(html => {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
-        const checkoutButton = doc.querySelector('form[action="/cart"] [name="checkout"]');
-        if (checkoutButton) {
-            const checkoutUrl = checkoutButton.closest('form').action;
-            window.location.href = checkoutUrl;
-            sendEventToRasa('checkout_initiated', {});
-        } else {
-            console.error('Checkout button not found');
-            sendEventToRasa('checkout_error', { error: 'Checkout button not found' });
-        }
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-        sendEventToRasa('checkout_error', { error: error.message });
-    });
+    window.location.href = '/checkout';
+    sendEventToRasa('checkout_initiated', {});
 };
 
 // Event listeners
@@ -421,11 +408,17 @@ window.addEventListener('load', handlePageChange);
 window.addEventListener('popstate', handlePageChange);
 
 document.body.addEventListener('click', (event) => {
-    if (event.target.matches('.add-to-cart, .checkout')) {
-        const buttonType = event.target.classList.contains('add-to-cart') ? 'add_to_cart' : 'checkout';
-        console.log(`Button clicked: ${buttonType}`);
-        sendEventToRasa('button_click', { buttonType });
+    if (event.target.matches('.add-to-cart')) {
+        const variantId = event.target.getAttribute('data-variant-id');
+        if (variantId) {
+            handleAddToCart(variantId);
+        }
+    } else if (event.target.matches('.checkout')) {
+        handleCheckout();
     }
+    // Send event to Rasa
+    const buttonType = event.target.classList.contains('add-to-cart') ? 'add_to_cart' : 'checkout';
+    sendEventToRasa('button_click', { buttonType });
 });
 
 function setImmediateBotResponse(message) {
