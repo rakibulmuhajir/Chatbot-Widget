@@ -114,17 +114,33 @@ function setBotResponse(response) {
             }
           }
   
-         if (Object.hasOwnProperty.call(response[i], "buttons")) {
-    console.log("Button or add_to_cart response detected:", response[i]);
+if (Object.hasOwnProperty.call(response[i], "buttons")) {
+    console.log("Button response detected:", response[i]);
     
     if (response[i].buttons.length > 0) {
-        addSuggestion(response[i].buttons);
-    } else if (response[i].custom && response[i].custom.payload === "add_to_cart") {
-        console.log("Add to cart action detected");
-        const { variantId, quantity } = response[i].custom;
-        handleAddToCart(variantId, quantity || 1);
+        const addToCartButtons = response[i].buttons.filter(button => button.payload && button.payload.startsWith('/add_to_cart'));
+        
+        if (addToCartButtons.length > 0) {
+            console.log("Add to cart buttons detected:", addToCartButtons);
+            const modifiedButtons = response[i].buttons.map(button => {
+                if (button.payload && button.payload.startsWith('/add_to_cart')) {
+                    const variantId = button.payload.split(':')[1];
+                    return {
+                        ...button,
+                        callback: (e) => {
+                            e.preventDefault();
+                            handleAddToCart(variantId, 1);
+                        }
+                    };
+                }
+                return button;
+            });
+            addSuggestion(modifiedButtons);
+        } else {
+            addSuggestion(response[i].buttons);
+        }
     } else {
-        console.log("Unexpected button or add_to_cart structure:", response[i]);
+        console.log("Unexpected button structure:", response[i]);
     }
 }
   
