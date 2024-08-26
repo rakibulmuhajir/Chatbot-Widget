@@ -125,6 +125,7 @@ if (Object.hasOwnProperty.call(response[i], "buttons")) {
             const modifiedButtons = response[i].buttons.map(button => {
                 if (button.payload && button.payload.startsWith('/add_to_cart')) {
                     const variantId = button.payload.split('=')[1];
+                    console.log(variantId)
                     return {
                         ...button,
                         callback: (e) => {
