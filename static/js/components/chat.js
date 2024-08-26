@@ -121,9 +121,11 @@ if (Object.hasOwnProperty.call(response[i], "buttons")) {
         const addToCartButtons = response[i].buttons.filter(button => button.payload && button.payload.startsWith('/add_to_cart'));
         
         if (addToCartButtons.length > 0) {
-            console.log("Add to cart buttons detected:", addToCartButtons);
+            
             const modifiedButtons = response[i].buttons.map(button => {
                 if (button.payload && button.payload.startsWith('/add_to_cart')) {
+                    console.log("button payload: " + button.payload)
+                    console.log("Add to cart buttons detected:", addToCartButtons);
                     const variantId = button.payload.split('=')[1];
                     console.log(variantId)
                     return {
