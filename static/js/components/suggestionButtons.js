@@ -51,3 +51,12 @@ $(document).on("click", ".menu .menuChips", function (e) {
     // delete the suggestions once user clicks on it.
     $(".suggestions").remove();
 });
+
+
+function displayCartActions() {
+    const buttons = [
+        { title: "View Cart", payload: "/view_cart" },
+        { title: "Go to Checkout", payload: "/go_to_checkout" }
+    ];
+    addSuggestion(buttons);
+}
