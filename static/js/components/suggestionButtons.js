@@ -15,7 +15,10 @@ function addSuggestion(suggestions) {
         for (let i = 0; i < suggLength; i += 1) {
             const isAddToCart = suggestions[i].payload && suggestions[i].payload.startsWith('/add_to_cart');
             const buttonClass = isAddToCart ? 'menuChips add-to-cart-button' : 'menuChips';
-            const variantId = isAddToCart ? suggestions[i].payload.split('=')[1] : '';
+            let variantId = '';
+            if (isAddToCart) {
+                variantId = suggestions[i].payload.split('=')[1].replace(/"/g, '');
+            }
             $(
                 `<div class="${buttonClass}" data-payload='${suggestions[i].payload}' ${isAddToCart ? `data-variant-id="${variantId}"` : ''}>${suggestions[i].title}</div>`,
             ).appendTo(".menu");
