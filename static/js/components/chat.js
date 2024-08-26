@@ -124,7 +124,7 @@ if (Object.hasOwnProperty.call(response[i], "buttons")) {
             console.log("Add to cart buttons detected:", addToCartButtons);
             const modifiedButtons = response[i].buttons.map(button => {
                 if (button.payload && button.payload.startsWith('/add_to_cart')) {
-                    const variantId = button.payload.split(':')[1];
+                    const variantId = button.payload.split('=')[1];
                     return {
                         ...button,
                         callback: (e) => {
