@@ -27,7 +27,6 @@ function addSuggestion(suggestions) {
     }, 1000);
 }
 
-// on click of suggestion's button, get the title value and send it to rasa
 $(document).on("click", ".menu .menuChips", function (e) {
     const text = this.innerText;
     const payload = this.getAttribute("data-payload");
@@ -36,12 +35,19 @@ $(document).on("click", ".menu .menuChips", function (e) {
     if ($(this).hasClass('add-to-cart-button')) {
         e.preventDefault();
         const variantId = this.getAttribute("data-variant-id");
+        console.log("Variant ID:", variantId);
         handleAddToCart(variantId, 1);
+    } else if (payload === "/view_cart") {
+        e.preventDefault();
+        window.location.href = '/cart';
+    } else if (payload === "/go_to_checkout") {
+        e.preventDefault();
+        window.location.href = '/checkout';
     } else {
         setUserResponse(text);
         send(payload);
     }
     
-    // delete the suggestions once user click on it.
+    // delete the suggestions once user clicks on it.
     $(".suggestions").remove();
 });
