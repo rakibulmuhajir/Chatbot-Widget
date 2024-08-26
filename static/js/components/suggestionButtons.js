@@ -17,7 +17,7 @@ function addSuggestion(suggestions) {
             const buttonClass = isAddToCart ? 'menuChips add-to-cart-button' : 'menuChips';
             let variantId = '';
             if (isAddToCart) {
-                variantId = suggestions[i].payload.split('=')[1].replace(/"/g, '');
+                variantId = suggestions[i].payload.split('=')[1].replace(/"/g, ''); 
             }
             $(
                 `<div class="${buttonClass}" data-payload='${suggestions[i].payload}' ${isAddToCart ? `data-variant-id="${variantId}"` : ''}>${suggestions[i].title}</div>`,
