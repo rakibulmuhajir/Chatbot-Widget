@@ -408,8 +408,10 @@ function handleAddToCart(variantId, quantity = 1) {
     })
     .then(response => response.json())
     .then(data => {
-        console.log('Product added to cart:', data);
-        // You can update the UI or show a confirmation message here
+         // Display a success message
+        setImmediateBotResponse("Product successfully added to your cart!");
+        // Display the "View Cart" and "Go to Checkout" buttons
+        displayCartActions();
     })
     .catch((error) => {
         console.error('Error adding product to cart:', error);
